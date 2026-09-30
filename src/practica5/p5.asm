@@ -1,17 +1,18 @@
-%include "../../lib/pc_io.inc"  	; incluir declaraciones de procedimiento externos
-								; que se encuentran en la biblioteca libpc_io.a
+%include "../../lib/pc_io.inc"   ; incluir declaraciones de procedimiento externos
 
-section	.text
-	global _start       ;referencia para inicio de programa
-	
-_start:                   
-	mov edx, msg		; edx = dirección de la cadena msg
-	call puts			; imprime cadena msg terminada en valor nulo (0)
+section .text
+    global _start         ; referencia para inicio de programa
+    
+_start:   
+    ; --- IMPRIMIR CADENA COMPLETA ---
+    mov edx, msg          ; edx = dirección de la cadena msg
+    call puts             ; imprime cadena
 
-	mov	eax, 1	    	; seleccionar llamada al sistema para fin de programa
-	int	0x80        	; llamada al sistema - fin de programa
+    ; --- FIN DE PROGRAMA ---
+    mov eax, 1            ; Llamada sys_exit
+	xor ebx, ebx          ; return 0
+    int 0x80              ; Fin de programa
 
-section	.data
-    msg	db  'abcdefghijklmnopqrstuvwxyz0123456789',0xa,0 
-
-
+section .data
+    msg db 'abcdefghijklmnopqrstuvwxyz0123456789', 0xa, 0
+    salto db 0xa
