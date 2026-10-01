@@ -4,18 +4,17 @@ section .text
     global _start
 
 _start:
-   
+
     mov edx, msg
     call puts
 
-    ; Base + indice*Escala + Desplazamiento
+    ; Registro + Desplazamiento
     mov ebx, msg
-    mov esi, 4
-    mov byte [ebx + esi*4 + 3], '%'
+    mov byte [ebx + 26], '@'
 
     mov edx, msg
     call puts
-
+   
     mov eax, 1
     xor ebx, ebx
     int 0x80

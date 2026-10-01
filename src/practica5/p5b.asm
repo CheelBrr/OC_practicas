@@ -8,14 +8,13 @@ _start:
     mov edx, msg
     call puts
 
-    ; Base + indice*Escala + Desplazamiento
+    ;  Modificacionn por Registro
     mov ebx, msg
-    mov esi, 4
-    mov byte [ebx + esi*4 + 3], '%'
+    add ebx, 23
+    mov byte [ebx], 'X'
 
     mov edx, msg
     call puts
-
     mov eax, 1
     xor ebx, ebx
     int 0x80

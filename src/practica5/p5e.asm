@@ -4,14 +4,14 @@ section .text
     global _start
 
 _start:
-   
+
     mov edx, msg
     call puts
 
-    ; Base + indice*Escala + Desplazamiento
+    ;base+ indice+ Desplazamiento
     mov ebx, msg
-    mov esi, 4
-    mov byte [ebx + esi*4 + 3], '%'
+    mov esi, 10
+    mov byte [ebx + esi + 5], 'P'
 
     mov edx, msg
     call puts
