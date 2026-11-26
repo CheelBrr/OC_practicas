@@ -19,12 +19,12 @@ _start:
     mov esi, cadena     
     mov ax, lencadena
     call captura   
-
     mov edx, nline
     call puts
-  
     mov edx, cadena
-    call atoi           
+    call atoi     
+
+    add eax, 10
 
     mov edi, buffer_salida
     call itoa           
@@ -32,7 +32,6 @@ _start:
     mov edx, buffer_salida 
     call puts           
 
-  
     mov edx, nline
     call puts
 
